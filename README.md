@@ -14,6 +14,12 @@ Python 2.x/3.x
 pip install scrapy
 ```
 
+#### Settings
+
+You may want to tweak download speed, number of parallel threads and other options
+in `spiders/settings.py`. The file is self-explanatory or consult Scrapy docs for
+more information.
+
 #### Usage
 
 Fill in `start_urls.txt` with start pages of Tumblr blogs.
