@@ -56,7 +56,6 @@ class TumblrSpiderSpider(scrapy.Spider):
             if match:
                 page = match.group(1)
             page = int(page) + 1
-            print(page)
             yield response.follow('/page/%s' % page, self.parse)
 
         for page_link in re.findall(r'href[="]*(/page/\d+)[">]*', html):
