@@ -50,13 +50,14 @@ class TumblrSpiderSpider(scrapy.Spider):
 
         # some tumblr blogs do not have next page link in form of /page/\d+ substring
         # but we will crawl next page if there are downloadable images
-        if len(re_images):
-            page = 1
-            match = re.search('/page/(\d+)', response.url)
-            if match:
-                page = match.group(1)
-            page = int(page) + 1
-            yield response.follow('/page/%s' % page, self.parse)
+        # this thing may not work for some blogs, uncomment with care
+        # if len(re_images):
+        #     page = 1
+        #     match = re.search('/page/(\d+)', response.url)
+        #     if match:
+        #         page = match.group(1)
+        #     page = int(page) + 1
+        #     yield response.follow('/page/%s' % page, self.parse)
 
         for page_link in re.findall(r'href[="]*(/page/\d+)[">]*', html):
             yield response.follow(page_link, self.parse)
