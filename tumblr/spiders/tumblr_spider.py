@@ -32,7 +32,7 @@ class TumblrSpiderSpider(scrapy.Spider):
 
         o = urlparse(response.url)
 
-        re_images = re.findall(r'https://\d+\.media\.tumblr\.com/[\d\w/_]+_\d+\.jpg', html)
+        re_images = re.findall(r'https://\d+\.media\.tumblr\.com/[\d\w/_]+_\d+\.(jpg|gif)', html)
         for image_link in re_images:
             image_link = re.sub(r'_\d+.jpg', '_1280.jpg', image_link)
             fn = self.get_fn(o.hostname, image_link)
