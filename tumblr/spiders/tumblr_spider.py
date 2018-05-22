@@ -52,13 +52,14 @@ class TumblrSpiderSpider(scrapy.Spider):
         for image_link in re_images:
             image_link = image_link[0]
             image_link = re.sub(r'_\d+.jpg$', '_1280.jpg', image_link)
+            image_link = re.sub(r'_\d+.gif$', '_1280.gif', image_link)
             fn = self.get_fn(o.hostname, image_link)
             if os.path.isfile(fn):
                 continue
 
-            print('image link ' + image_link)
-            print(fn)
-            print()
+            # print('image link ' + image_link)
+            # print(fn)
+            # print()
 
             d = os.path.dirname(fn)
             if not os.path.isdir(d):
