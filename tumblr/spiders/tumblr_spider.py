@@ -9,14 +9,6 @@ import scrapy
 class TumblrSpiderSpider(scrapy.Spider):
     name = 'tumblr-spider'
 
-    cookies_str = 'pfg=477cc7d08af3433b166e93f39babf79d3be08db0396145eb8a30db4f5e7a137c%23%7B%22' \
-                  'eu_resident%22%3A1%2C%22' \
-                  'gdpr_is_acceptable_age%22%3A1%2C%22' \
-                  'gdpr_consent_core%22%3A1%2C%22' \
-                  'gdpr_consent_first_party_ads%22%3A1%2C%22' \
-                  'gdpr_consent_third_party_ads%22%3A1%2C%22' \
-                  'gdpr_consent_search_history%22%3A1%2C%22exp%22%3A1558465652%7D%237501684376'
-
     @staticmethod
     def parse_cookies(cookie: str) -> dict:
         cookie = cookie.split(':')[-1]
